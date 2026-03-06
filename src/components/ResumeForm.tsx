@@ -22,8 +22,22 @@ export default function ResumeForm({ setResume }: Props) {
     references: []
   })
 
+  const [skillInput, setSkillInput] = useState("")
+
   const updateField = (field: keyof ResumeData, value: any) => {
     setForm({ ...form, [field]: value })
+  }
+
+  const addSkill = () => {
+
+    if (!skillInput.trim()) return
+
+    setForm({
+      ...form,
+      skills: [...form.skills, skillInput]
+    })
+
+    setSkillInput("")
   }
 
   const addEducation = () => {
@@ -81,6 +95,41 @@ export default function ResumeForm({ setResume }: Props) {
       <textarea placeholder="About Me" className="border p-2"
         onChange={(e)=>updateField("about",e.target.value)} />
 
+      {/* SKILLS */}
+
+      <h2 className="font-bold text-lg mt-4">Skills</h2>
+
+      <div className="flex gap-2">
+
+        <input
+          placeholder="Enter a skill"
+          className="border p-2 flex-1"
+          value={skillInput}
+          onChange={(e)=>setSkillInput(e.target.value)}
+        />
+
+        <button
+          onClick={addSkill}
+          className="bg-gray-200 px-4"
+        >
+          Add
+        </button>
+
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+
+        {form.skills.map((skill, index)=>(
+          <span
+            key={index}
+            className="bg-gray-200 px-2 py-1 text-sm"
+          >
+            {skill}
+          </span>
+        ))}
+
+      </div>
+
       {/* EDUCATION */}
 
       <h2 className="font-bold text-lg mt-4">Education</h2>
@@ -97,8 +146,8 @@ export default function ResumeForm({ setResume }: Props) {
             placeholder="School"
             className="border p-2"
             onChange={(e)=>{
-              const updated = [...form.education]
-              updated[i].school = e.target.value
+              const updated=[...form.education]
+              updated[i].school=e.target.value
               updateField("education",updated)
             }}
           />
@@ -107,8 +156,8 @@ export default function ResumeForm({ setResume }: Props) {
             placeholder="Degree"
             className="border p-2"
             onChange={(e)=>{
-              const updated = [...form.education]
-              updated[i].degree = e.target.value
+              const updated=[...form.education]
+              updated[i].degree=e.target.value
               updateField("education",updated)
             }}
           />
@@ -117,8 +166,8 @@ export default function ResumeForm({ setResume }: Props) {
             placeholder="Start Year"
             className="border p-2"
             onChange={(e)=>{
-              const updated = [...form.education]
-              updated[i].startYear = e.target.value
+              const updated=[...form.education]
+              updated[i].startYear=e.target.value
               updateField("education",updated)
             }}
           />
@@ -127,8 +176,8 @@ export default function ResumeForm({ setResume }: Props) {
             placeholder="End Year"
             className="border p-2"
             onChange={(e)=>{
-              const updated = [...form.education]
-              updated[i].endYear = e.target.value
+              const updated=[...form.education]
+              updated[i].endYear=e.target.value
               updateField("education",updated)
             }}
           />
