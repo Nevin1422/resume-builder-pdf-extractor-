@@ -11,7 +11,7 @@ export async function generatePDF(elementId: string) {
 
   html2pdf()
     .set({
-      margin: 10,
+      margin: 0,
       filename: "resume.pdf",
       html2canvas: { scale: 2 },
       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }

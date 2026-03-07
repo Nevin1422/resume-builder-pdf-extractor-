@@ -76,24 +76,45 @@ export default function ResumeForm({ setResume }: Props) {
 
   return (
 
-    <div className="flex flex-col gap-4 w-[350px]">
+<div className="flex flex-col gap-4 w-[350px]">
 
-      <h2 className="font-bold text-lg">Personal Info</h2>
+  <h2 className="font-bold text-lg">Personal Info</h2>
 
-      <input placeholder="Name" className="border p-2"
-        onChange={(e)=>updateField("name",e.target.value)} />
+  <input
+    placeholder="Name"
+    className="border p-2"
+    onChange={(e)=>updateField("name",e.target.value)}
+  />
 
-      <input placeholder="Role" className="border p-2"
-        onChange={(e)=>updateField("role",e.target.value)} />
+  <input
+    placeholder="Role"
+    className="border p-2"
+    onChange={(e)=>updateField("role",e.target.value)}
+  />
 
-      <input placeholder="Phone" className="border p-2"
-        onChange={(e)=>updateField("phone",e.target.value)} />
+  <input
+    placeholder="Phone"
+    className="border p-2"
+    onChange={(e)=>updateField("phone",e.target.value)}
+  />
 
-      <input placeholder="Email" className="border p-2"
-        onChange={(e)=>updateField("email",e.target.value)} />
+  <input
+    placeholder="Email"
+    className="border p-2"
+    onChange={(e)=>updateField("email",e.target.value)}
+  />
 
-      <textarea placeholder="About Me" className="border p-2"
-        onChange={(e)=>updateField("about",e.target.value)} />
+  <input
+    placeholder="Location / Address"
+    className="border p-2"
+    onChange={(e)=>updateField("address",e.target.value)}
+  />
+
+  <textarea
+    placeholder="About Me"
+    className="border p-2"
+    onChange={(e)=>updateField("about",e.target.value)}
+  />
 
       {/* SKILLS */}
 
